@@ -1,6 +1,2 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-04-gif-expert-app/node_modules
-03-react-counter-app-0.4.0/node_modules
-
+03-counter-app-vite/node_modules
+03-counter-app-vite/.vscode/*
