@@ -1,14 +1,17 @@
 import { useState } from "react";
+import { AddCategory } from "./components/AddCategory";
+import { GifGrid } from "./components/GifGrid";
 
 export const GitExpertApp = () => {
   
-  const [categories, setCategories] = useState(['Edgard', 'Uriel']);
+  const [categories, setCategories] = useState([]);
 
-  const addCategory = () => {
+  const addCategories = (value) => {
+  
+    if(categories.includes(value)) return;
     
-    //setCategories([...categories,'BARQUERO']); //Operador spreed.
-    setCategories( cat => ['BARQUERO', ...cat]);
-
+    setCategories( [...categories, value] ); //Operador spreed.
+    //setCategories( cat => ['BARQUERO', ...cat]);
 
   };
 
@@ -16,14 +19,18 @@ export const GitExpertApp = () => {
     <>
       <h1>GitExpertApp</h1>
 
-      <button onClick={ addCategory }>Agregar</button>
-      <ol>
-        {
-          categories.map(category => {
-            return <li key={ category }> { category } </li>
-          })
-        }
-      </ol>
+      <AddCategory 
+        onNewCategory={ addCategories }
+      />
+
+      {
+        categories.map( category => (
+          <GifGrid 
+            key={ category } 
+            category={ category } 
+          />
+        ))
+      }
 
     </>
   );
