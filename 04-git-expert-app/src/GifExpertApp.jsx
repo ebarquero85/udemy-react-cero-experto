@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { AddCategory } from "./components/AddCategory";
-import { GifGrid } from "./components/GifGrid";
+import { AddCategory, GifGrid } from "./components";
 
-export const GitExpertApp = () => {
+export const GifExpertApp = () => {
   
   const [categories, setCategories] = useState([]);
 
@@ -10,18 +9,16 @@ export const GitExpertApp = () => {
   
     if(categories.includes(value)) return;
     
-    setCategories( [...categories, value] ); //Operador spreed.
+    setCategories( [value, ...categories] ); //Operador spreed.
     //setCategories( cat => ['BARQUERO', ...cat]);
 
   };
 
   return (
     <>
-      <h1>GitExpertApp</h1>
+      <h1>GifExpertApp</h1>
 
-      <AddCategory 
-        onNewCategory={ addCategories }
-      />
+      <AddCategory onNewCategory={ addCategories }/>
 
       {
         categories.map( category => (
@@ -31,7 +28,6 @@ export const GitExpertApp = () => {
           />
         ))
       }
-
     </>
   );
 
