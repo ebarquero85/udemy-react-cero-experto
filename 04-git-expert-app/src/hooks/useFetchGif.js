@@ -8,9 +8,10 @@ export const useFetchGif = ( category ) => {
 
   useEffect(() => {
     
-    getGifs(category).then( img => {
-      setImages(img);
-      setIsLoading(false);
+    getGifs(category)
+      .then( img => {
+        setImages(img);
+        setIsLoading(false);
     });
 
   }, []);
