@@ -1,10 +1,8 @@
-import { useFetch } from '../hooks/useFetch';
-import { useCounter } from '../hooks/useCounter';
-import { Loading } from './Loading';
-import { Quotes } from './Quotes';
+import { useFetch, useCounter } from '../hooks';
+import { Loading, Quotes } from '../03-examples';
 
 
-export const MultipleCustomHooks = () => {
+export const Layout = () => {
 
     const { counter, increment } = useCounter(1);
     
@@ -12,15 +10,6 @@ export const MultipleCustomHooks = () => {
 
     const { data, isLoading, hasError } = useFetch(url);
     const { author, quote } = !!data && data[0];
-
-    //console.log({ data, isLoading, hasError });
-
-    // if( isLoading ) {
-    //     return (
-    //         <h1>Cargando...</h1>
-    //     )
-    // }
-    // Si se realiza el condicional anterior no poner hooks en la parte de abajo de este código.
 
 
     return (

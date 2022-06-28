@@ -7,14 +7,19 @@ import { SimpleForm } from './02-useEffect/SimpleForm'
 import { MultipleCustomHooks } from './03-examples/MultipleCustomHooks'
 import { HooksApp } from './HooksApp'
 import './index.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import { FocusScreen } from './04-useRef/FocusScreen'
+import { Layout } from './05-useLayoutEffect/Layout'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <SimpleForm />
   // <React.StrictMode>
-  //   {/* <HooksApp />  */}
-  //   {/* <CounterApp /> */}
-  //   {/* <CounterWithCustomHook />  */}   
   // </React.StrictMode>
+  // <HooksApp />  
+  // <CounterApp />
+  // <CounterWithCustomHook />
   //<FormWithCustomHook />
-  <MultipleCustomHooks />
+  //<SimpleForm />
+  //<MultipleCustomHooks />
+  //<FocusScreen />
+  <Layout />
 )
