@@ -1,4 +1,4 @@
-import React from 'react'
+import { useCallback } from 'react'
 import { Hijo } from './Hijo'
 import { useState } from 'react';
 
@@ -7,14 +7,20 @@ export const Padre = () => {
     const numeros = [2,4,6,8,10];
     const [valor, setValor] = useState(0);
 
-    const incrementar = ( num ) => {
-        setValor( valor + num )
-    }
+    const incrementarPadre = useCallback(
+      (num) => {
+        setValor( (v) => v + num );
+      }, []);
+    
+
+    // const incrementar = ( num ) => {
+    //     setValor( valor + num )
+    // }
 
 
     return (
-        <div>
-            <h1>Padre</h1>
+        <>
+            
             <p> Total: { valor } </p>
 
             <hr />
@@ -24,11 +30,11 @@ export const Padre = () => {
                     <Hijo 
                         key={ n }
                         numero={ n }
-                        incrementar={ incrementar }
+                        incrementar={ incrementarPadre }
                     />
                 ))
             }
-            {/* <Hijo /> */}
-        </div>
+           
+        </>
     )
 }
