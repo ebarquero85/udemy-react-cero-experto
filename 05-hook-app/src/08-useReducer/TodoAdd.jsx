@@ -1,39 +1,55 @@
-import { useState } from "react"
+//import { useState } from "react"
+import { useForm } from '../hooks'
 
 export const TodoAdd = ({ handleNewTodo }) => {
 
     //console.log('Se renderiza <TodoAdd />');
 
-    const [descripcion, setDescripcion] = useState('');
+    // const [description, setDescription] = useState('');
 
-    const agregar = (e) => {
+    const { description, onInputChange, onResetForm } = useForm({
+        description: ''
+    });
+
+
+
+    const onFormSubmit = (event) => {
         
-        e.preventDefault();
+        event.preventDefault();
 
-        if(descripcion){
-            handleNewTodo(descripcion);
+        if(description.length === 0) return ;
+
+
+        const newTodo = {
+            id: new Date().getTime(),
+            description: description,
+            done: false
         }
 
-        setDescripcion('');
+        handleNewTodo(newTodo);
+
+        onResetForm();
 
     }
 
 
+
+
     return (
         <>
-            <form action="">
+            <form onSubmit={ onFormSubmit }>
                 <input 
                     type="text" 
                     placeholder="Que hay que hacer?"
                     className="form-control"
-                    value={ descripcion }
-                    onChange={ (e) => setDescripcion(e.target.value) }
+                    name="description"
+                    value={ description }
+                    onChange={ onInputChange }
                 />
 
                 <button
                     type="submit"
                     className="btn btn-outline-primary mt-2"
-                    onClick={ agregar }
                 >
                     Agregar
                 </button>
