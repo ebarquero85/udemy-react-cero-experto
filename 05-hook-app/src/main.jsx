@@ -15,20 +15,21 @@ import { MemoHook } from './06-memos/MemoHook';
 import { CallbackHook } from './06-memos/CallbackHook';
 import { Padre } from './07-tarea-memo/Padre';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-  // </React.StrictMode>
-  // <HooksApp />  
-  // <CounterApp />
-  // <CounterWithCustomHook />
-  //<FormWithCustomHook />
-  //<SimpleForm />
-  //<MultipleCustomHooks />
-  //<FocusScreen />
-  //<Layout />
-  //<Memorize />
-  //<MemoHook />
-  //<CallbackHook />
-  <Padre />
+import '../src/08-useReducer/intro-reducer';
 
-)
+// ReactDOM.createRoot(document.getElementById('root')).render(
+//   // <React.StrictMode>
+//   // </React.StrictMode>
+//   // <HooksApp />  
+//   // <CounterApp />
+//   // <CounterWithCustomHook />
+//   //<FormWithCustomHook />
+//   //<SimpleForm />
+//   //<MultipleCustomHooks />
+//   //<FocusScreen />
+//   //<Layout />
+//   //<Memorize />
+//   //<MemoHook />
+//   //<CallbackHook />
+//   //<Padre />
+// )
