@@ -11,14 +11,11 @@ export const TodoAdd = ({ handleNewTodo }) => {
         description: ''
     });
 
-
-
     const onFormSubmit = (event) => {
         
         event.preventDefault();
 
         if(description.length === 0) return ;
-
 
         const newTodo = {
             id: new Date().getTime(),
@@ -33,8 +30,6 @@ export const TodoAdd = ({ handleNewTodo }) => {
     }
 
 
-
-
     return (
         <>
             <form onSubmit={ onFormSubmit }>
@@ -47,10 +42,7 @@ export const TodoAdd = ({ handleNewTodo }) => {
                     onChange={ onInputChange }
                 />
 
-                <button
-                    type="submit"
-                    className="btn btn-outline-primary mt-2"
-                >
+                <button type="submit" className="btn btn-outline-primary mt-2">
                     Agregar
                 </button>
             </form>
