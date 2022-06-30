@@ -1,5 +1,4 @@
-import { useEffect, useReducer } from 'react'
-import { todoReducer, TodoList, TodoAdd } from './';
+import { TodoAdd } from './';
 
 const initialState = [
     // {
@@ -17,6 +16,10 @@ const initialState = [
 const init = () => JSON.parse( localStorage.getItem('todos') || [] );
 
 export const TodoApp = () => {
+
+    // useTodo
+    // todo, handleNewTodo, handleRemoveTodo, onToggleTodo
+    // 
 
     const [ todos, dispatch ] = useReducer(todoReducer, initialState, init);
 
@@ -36,7 +39,26 @@ export const TodoApp = () => {
 
         dispatch( action );
 
+    };
+
+    const handleRemoveTodo = ( id ) => {
+
+        dispatch({
+            type: '[TODO] Remove todo',
+            payload: id
+        })
+        
+    };
+
+    const onToggleTodo = ( id ) => {
+        
+        dispatch({
+            type: '[TODO] Toggle todo',
+            payload: id
+        })
+
     }
+
 
  
     return (
@@ -49,6 +71,8 @@ export const TodoApp = () => {
 
                     <TodoList 
                         todos={ todos } 
+                        handleRemoveTodo={ handleRemoveTodo }
+                        onToggleTodo={ onToggleTodo }
                     />
 
                 </div>
