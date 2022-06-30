@@ -37,6 +37,7 @@ export const TodoAdd = ({ handleNewTodo }) => {
                     type="text" 
                     placeholder="Que hay que hacer?"
                     className="form-control"
+                    autoComplete="false"
                     name="description"
                     value={ description }
                     onChange={ onInputChange }

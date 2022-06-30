@@ -5,15 +5,10 @@ export const todoReducer = ( initialState = [], action ) => {
     
     switch( action.type ){
         
-        case '[TODO ]Add todo':
+        case '[TODO] Add todo':
 
-            return [
-                ...initialState,
-                action.payload
-            ]
-
+            return [...initialState, action.payload]
             //throw new Error('Action.type = BC no esta implementada');
-            //return initialState;
 
         default:
             return initialState;

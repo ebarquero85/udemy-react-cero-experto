@@ -1,25 +1,41 @@
-import { useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 import { todoReducer, TodoList, TodoAdd } from './';
 
 const initialState = [
-    {
-        id: new Date().getTime(),
-        description: 'Estudiar React',
-        done: false
-    },
-    {
-        id: new Date().getTime() + 1000,
-        description: 'Practicar React Native',
-        done: false
-    },
+    // {
+    //     id: new Date().getTime(),
+    //     description: 'Estudiar React',
+    //     done: false
+    // },
+    // {
+    //     id: new Date().getTime() + 1000,
+    //     description: 'Practicar React Native',
+    //     done: false
+    // },
 ];
+
+const init = () => JSON.parse( localStorage.getItem('todos') || [] );
 
 export const TodoApp = () => {
 
-    const [ todos, dispatch ] = useReducer(todoReducer, initialState);
+    const [ todos, dispatch ] = useReducer(todoReducer, initialState, init);
+
+    useEffect(() => {
+
+        localStorage.setItem('todos', JSON.stringify(todos) || []);
+
+    }, [todos]);
+
 
     const handleNewTodo = ( todo ) => {
-        console.log( {todo} );
+        
+        const action = {
+            type: '[TODO] Add todo',
+            payload: todo
+        }
+
+        dispatch( action );
+
     }
 
  

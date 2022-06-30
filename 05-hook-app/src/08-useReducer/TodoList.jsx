@@ -1,4 +1,3 @@
-import { useId } from 'react';
 import { TodoItem } from './TodoItem';
 
 export const TodoList = ({todos}) => {
@@ -9,7 +8,7 @@ export const TodoList = ({todos}) => {
             <ul className="list-group">
                 {
                     todos.map( todo => 
-                        <TodoItem key={ useId() } {...todo} />
+                        <TodoItem key={ todo.id } {...todo} />
                     )
                 }
             </ul>    
