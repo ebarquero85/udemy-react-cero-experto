@@ -16,12 +16,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import { Padre } from './07-tarea-memo/Padre';
 // import '../src/08-useReducer/intro-reducer';
 //import { TodoApp } from './08-useReducer/TodoApp';
-import { Main } from './09-useContext/Main';
+import { MainApp } from './09-useContext/MainApp';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   {/* <React.StrictMode> */}
-    <Main />
+    <MainApp />
   {/* </React.StrictMode> */}
   </BrowserRouter>
 )
